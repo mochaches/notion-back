@@ -44,6 +44,14 @@
             <groupId>io.github.renestel</groupId>
             <artifactId>notion-persistence</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.github.renestel</groupId>
+            <artifactId>notion-provider-proxy-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.renestel</groupId>
+            <artifactId>notion-provider-proxy-client</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

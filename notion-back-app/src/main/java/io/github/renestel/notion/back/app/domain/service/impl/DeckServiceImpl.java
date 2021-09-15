@@ -8,6 +8,7 @@ import io.github.renestel.notion.back.app.domain.service.DeckService;
 import io.github.renestel.notion.domain.model.response.base.BaseResponse;
 import io.github.renestel.notion.domain.model.response.base.ResponseStatus;
 import io.github.renestel.notion.persistence.repository.DecksRepository;
+import io.github.renestel.notion.provider.proxy.api.ProviderProxy;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -21,9 +22,9 @@ import javax.transaction.Transactional;
 @Slf4j(topic = "NOTION-DECK-SERVICE")
 public class DeckServiceImpl implements DeckService {
 
+    final ProviderProxy proxy;
     final DecksRepository repository;
     final ModelMapper mapper;
-
 
     @Override
     @Transactional
