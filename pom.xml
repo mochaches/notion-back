@@ -17,6 +17,7 @@
         <module>notion-back-db</module>
         <module>notion-domain-base</module>
         <module>notion-persistence</module>
+        <module>notion-partner-proxy-api</module>
     </modules>
 
     <name>notion</name>
@@ -43,6 +44,11 @@
                 <version>2.4.4</version>
             </dependency>
             <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>1.5.10</version>
+            </dependency>
+            <dependency>
                 <groupId>io.github.renestel</groupId>
                 <artifactId>notion-back-app</artifactId>
                 <version>${revision}</version>
@@ -55,6 +61,11 @@
             <dependency>
                 <groupId>io.github.renestel</groupId>
                 <artifactId>notion-persistence</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.renestel</groupId>
+                <artifactId>notion-partner-proxy-api</artifactId>
                 <version>${revision}</version>
             </dependency>
         </dependencies>
