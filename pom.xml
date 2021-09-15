@@ -18,6 +18,8 @@
         <module>notion-domain-base</module>
         <module>notion-persistence</module>
         <module>notion-partner-proxy-api</module>
+        <module>notion-partner-proxy-client</module>
+        <module>notion-back-utils-rest</module>
     </modules>
 
     <name>notion</name>
@@ -66,6 +68,16 @@
             <dependency>
                 <groupId>io.github.renestel</groupId>
                 <artifactId>notion-partner-proxy-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.renestel</groupId>
+                <artifactId>notion-partner-proxy-client</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.renestel</groupId>
+                <artifactId>notion-back-utils-rest</artifactId>
                 <version>${revision}</version>
             </dependency>
         </dependencies>
