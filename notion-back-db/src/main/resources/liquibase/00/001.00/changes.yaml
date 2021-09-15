@@ -1,0 +1,17 @@
+databaseChangeLog:
+
+  - include:
+      file: ddl/schema.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: ddl/tags.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: ddl/decks.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: ddl/notes.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: ddl/note_tags.yaml
+      relativeToChangelogFile: true
