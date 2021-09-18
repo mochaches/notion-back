@@ -56,7 +56,31 @@ logbook:
   logger:
     active: true
 
-provider:
+notion:
+  proxy:
+    schema: http
+    host: localhost
+    port: 8081
+    basePath: /v1/rest/{partner}
+    max-total-connections: 30
+    max-default-per-route-connections: 30
+    retry-max-attempts: 1
+    retry-delay: 5000
+    ssl:
+      enabled: false
+      client-auth: need
+      key-store: proxy-keystore.p12
+      key-alias: server
+      key-store-type: PKCS12
+      key-store-password: example
+      trust-store: proxy-truststore.p12
+      trust-store-type: PKCS12
+      trust-store-password: example
+    paths:
+      get-deck: /getDeck
+      get-decks: /getDecks
+
+anki:
   proxy:
     schema: http
     host: localhost

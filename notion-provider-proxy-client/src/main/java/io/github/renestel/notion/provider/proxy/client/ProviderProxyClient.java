@@ -23,11 +23,11 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ProviderProxyClient implements ProviderProxy {
     static final String PARTNER_OPTION = "partner";
-    static final String NOTION = "notion";
 
     final UriBuilderFactory uriBuilderFactory;
     final ProviderProxyProperties props;
     final RestTemplate restTemplate;
+    final String partnerName;
 
     @Override
     public ResponseEntity<BaseResponse<GetDeckProxyResponse>> getDeck(GetDeckProxyRequest request) throws ProxyLogicException {
@@ -41,7 +41,7 @@ public class ProviderProxyClient implements ProviderProxy {
             uriBuilderFactory
                 .builder()
                 .path(props.getPaths().getGetDeck())
-                .build(Map.of(PARTNER_OPTION, NOTION)),
+                .build(Map.of(PARTNER_OPTION, partnerName.toLowerCase())),
             HttpMethod.POST,
             new HttpEntity<>(request, headers),
             parameterizedTypeReference
@@ -61,11 +61,16 @@ public class ProviderProxyClient implements ProviderProxy {
             uriBuilderFactory
                 .builder()
                 .path(props.getPaths().getGetDecks())
-                .build(Map.of(PARTNER_OPTION, NOTION)),
+                .build(Map.of(PARTNER_OPTION, partnerName.toLowerCase())),
             HttpMethod.POST,
             new HttpEntity<>(request, headers),
             parameterizedTypeReference
         );
         return exchange;
+    }
+
+    @Override
+    public String getProviderName() {
+        return partnerName.toLowerCase();
     }
 }

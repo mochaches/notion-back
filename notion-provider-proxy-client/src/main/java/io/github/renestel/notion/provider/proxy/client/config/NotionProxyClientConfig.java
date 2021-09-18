@@ -18,10 +18,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @Configuration
 @EnableRetry
-public class ProviderProxyClientConfig extends HttpClientConfigurer {
+public class NotionProxyClientConfig extends HttpClientConfigurer {
 
-    @Bean("provider.proxy.client")
-    public UriBuilderFactory createUriBuilderFactory(ProviderProxyProperties properties) {
+    @Bean("notion.proxy.client")
+    public UriBuilderFactory createUriBuilderFactory(@Qualifier("createAnkiProxyProperties") ProviderProxyProperties properties) {
         return new DefaultUriBuilderFactory(
             UriComponentsBuilder
                 .newInstance()
@@ -32,9 +32,9 @@ public class ProviderProxyClientConfig extends HttpClientConfigurer {
         );
     }
 
-    @Bean("provider.proxy.client.rest.template")
+    @Bean("notion.proxy.client.rest.template")
     public RestTemplate createRestTemplate(
-        ProviderProxyProperties properties,
+        @Qualifier("createAnkiProxyProperties") ProviderProxyProperties properties,
         HttpRequestInterceptor requestInterceptor,
         HttpResponseInterceptor responseInterceptor,
         RestTemplateBuilder restTemplateBuilder
@@ -53,10 +53,10 @@ public class ProviderProxyClientConfig extends HttpClientConfigurer {
     }
 
     @Bean
-    public ProviderProxy createProviderProxy(
-        @Qualifier("provider.proxy.client") UriBuilderFactory uriBuilderFactory,
-        ProviderProxyProperties properties,
-        @Qualifier("provider.proxy.client.rest.template") RestTemplate restClient) {
-        return new ProviderProxyClient(uriBuilderFactory, properties, restClient);
+    public ProviderProxy createNotionProxy(
+        @Qualifier("notion.proxy.client") UriBuilderFactory uriBuilderFactory,
+        @Qualifier("createAnkiProxyProperties") ProviderProxyProperties properties,
+        @Qualifier("notion.proxy.client.rest.template") RestTemplate restClient) {
+        return new ProviderProxyClient(uriBuilderFactory, properties, restClient, "notion");
     }
 }

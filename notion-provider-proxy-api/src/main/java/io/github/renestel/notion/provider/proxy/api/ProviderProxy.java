@@ -11,4 +11,6 @@ public interface ProviderProxy {
     ResponseEntity<BaseResponse<GetDeckProxyResponse>> getDeck(GetDeckProxyRequest request) throws ProxyLogicException;
 
     ResponseEntity<BaseResponse<GetDecksProxyResponse>> getDecks(GetDecksProxyRequest request) throws ProxyLogicException;
+
+    String getProviderName();
 }
