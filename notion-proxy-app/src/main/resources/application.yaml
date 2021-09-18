@@ -1,0 +1,27 @@
+server:
+  port: 8081
+  enabled: true
+
+spring:
+  application:
+    name: Notion Proxy
+
+notion:
+  schema: http
+  connection-timeout: 10000
+  read-timeout: 20000
+  host: localhost
+  port: 1001
+  basePath: /notion/v1
+  ssl:
+    enabled: false
+    client-auth: need
+    key-store: notion-proxy-app/src/main/resources/keystore.jks
+    key-store-type: JKS
+    key-store-password: 123456
+    trust-store: notion-proxy-app/src/main/resources/truststore.p12
+    trust-store-type: PKCS12
+    trust-store-password: 123456
+  paths:
+    deck: /deck
+    decks: /decs
