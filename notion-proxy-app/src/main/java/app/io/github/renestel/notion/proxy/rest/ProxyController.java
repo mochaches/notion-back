@@ -30,12 +30,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProxyController implements ProviderProxy {
     final ProviderProxy service;
 
-    @Override
-    @PostMapping("/getDeck")
-    @Operation(tags = "decks", summary = "Get deck info")
-    public ResponseEntity<BaseResponse<GetDeckProxyResponse>> getDeck(@RequestBody GetDeckProxyRequest request) throws ProxyLogicException {
-        return service.getDeck(request);
-    }
+//    @Override
+//    @PostMapping("/getDeck")
+//    @Operation(tags = "decks", summary = "Get deck info")
+//    public ResponseEntity<BaseResponse<GetDeckProxyResponse>> getDeck(@RequestBody GetDeckProxyRequest request) throws ProxyLogicException {
+//        return service.getDeck(request);
+//    }
 
     @Override
     @PostMapping("/getDecks")

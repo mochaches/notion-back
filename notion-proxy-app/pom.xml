@@ -40,6 +40,10 @@
             <artifactId>logbook-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+        </dependency>
+        <dependency>
             <groupId>io.github.renestel</groupId>
             <artifactId>notion-back-utils-rest</artifactId>
             <version>${notion-projects.version}</version>
