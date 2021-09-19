@@ -15,3 +15,6 @@ databaseChangeLog:
   - include:
       file: ddl/note_tags.yaml
       relativeToChangelogFile: true
+  - include:
+      file: ddl/users.yaml
+      relativeToChangelogFile: true

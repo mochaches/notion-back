@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: 00.001.00/ddl/users
+      author: RenEstel
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - tableExists:
+                schemaName: notion
+                tableName: users
+      changes:
+        - tagDatabase:
+            tag: release/00.001.00
+
+        - createSequence:
+            schemaName: notion
+            sequenceName: users_seq
+            startValue: 1
+
+        - createTable:
+            schemaName: notion
+            remarks: 'the table stores user info for notion'
+            tableName: users
+            columns:
+              - column:
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: users_pk
+                  remarks: 'the id is a primary key of the table, it relations users_seq'
+                  name: id
+                  type: bigint
+              - column:
+                  remarks: 'the id of the table in notion'
+                  name: table
+                  type: varchar(125)
+              - column:
+                  remarks: 'the token authorization in notion'
+                  name: token
+                  type: varchar(125)
+
+        - addDefaultValue:
+            schemaName: notion
+            tableName: users
+            columnName: id
+            defaultValueSequenceNext: users_seq

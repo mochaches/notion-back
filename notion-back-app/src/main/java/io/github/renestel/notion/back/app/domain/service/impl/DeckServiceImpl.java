@@ -3,7 +3,7 @@ package io.github.renestel.notion.back.app.domain.service.impl;
 import io.github.renestel.notion.back.app.domain.service.DeckService;
 import io.github.renestel.notion.domain.model.response.base.BaseResponse;
 import io.github.renestel.notion.domain.model.response.base.ResponseStatus;
-import io.github.renestel.notion.persistence.repository.DecksRepository;
+import io.github.renestel.notion.persistence.repository.DeckRepository;
 import io.github.renestel.notion.provider.proxy.api.ProviderProxy;
 import io.github.renestel.notion.provider.proxy.api.request.GetDecksProxyRequest;
 import io.github.renestel.notion.provider.proxy.client.utils.ProviderProxyResponseHandler;
@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 @Slf4j(topic = "NOTION-DECK-SERVICE")
 public class DeckServiceImpl implements DeckService {
 
-    final DecksRepository repository;
+    final DeckRepository repository;
     final ModelMapper mapper;
     final List<ProviderProxy> proxiesList;
 

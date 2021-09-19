@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,7 +36,7 @@ public class GatewayRestController implements GatewayRestApi {
     @Override
     @PostMapping("/getDecks")
     @Operation(tags = "Deck", summary = "NOTION_GET_DECKS_REQUEST", description = "Получение колод")
-    public ResponseEntity<BaseResponse<GetDecksResponse>> getDecks(GetDecksRequest request) {
+    public ResponseEntity<BaseResponse<GetDecksResponse>> getDecks(@RequestBody GetDecksRequest request) {
         return deckService.getDecks(request);
     }
 }
