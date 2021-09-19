@@ -1,4 +1,4 @@
-package io.github.renestel.notion.back.app.domain.domain.dto;
+package io.github.renestel.notion.rest.gateway.api.domain.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

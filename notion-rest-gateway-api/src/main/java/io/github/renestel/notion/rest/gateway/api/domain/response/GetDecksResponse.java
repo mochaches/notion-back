@@ -1,6 +1,6 @@
-package io.github.renestel.notion.back.app.domain.domain.response;
+package io.github.renestel.notion.rest.gateway.api.domain.response;
 
-import io.github.renestel.notion.back.app.domain.domain.dto.DeckDto;
+import io.github.renestel.notion.rest.gateway.api.domain.dto.DeckDto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Schema(title = "Deck response")
+@Schema(title = "Информация о колодах")
 public class GetDecksResponse {
     List<DeckDto> decks;
 }

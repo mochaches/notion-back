@@ -1,7 +1,7 @@
 package io.github.renestel.notion.back.app.mapper.config;
 
-import io.github.renestel.notion.back.app.domain.domain.dto.DeckDto;
 import io.github.renestel.notion.persistence.entity.DeckEntity;
+import io.github.renestel.notion.rest.gateway.api.domain.dto.DeckDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.context.annotation.Bean;

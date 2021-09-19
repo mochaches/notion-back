@@ -23,29 +23,9 @@ public class ProviderProxyClient implements ProviderProxy {
     static final String PARTNER_OPTION = "partner";
 
     final UriBuilderFactory uriBuilderFactory;
-    final ProviderProxyProperties props;
+    final ProviderProxyProperties properties;
     final RestTemplate restTemplate;
     final String partnerName;
-
-//    @Override
-//    public ResponseEntity<BaseResponse<GetDeckProxyResponse>> getDeck(GetDeckProxyRequest request) throws ProxyLogicException {
-//        var parameterizedTypeReference = new ParameterizedTypeReference<BaseResponse<GetDeckProxyResponse>>() {
-//        };
-//
-//        var headers = new HttpHeaders();
-//        headers.setContentType(MediaType.APPLICATION_JSON);
-//
-//        var exchange = restTemplate.exchange(
-//            uriBuilderFactory
-//                .builder()
-//                .path(props.getPaths().getGetDeck())
-//                .build(Map.of(PARTNER_OPTION, partnerName.toLowerCase())),
-//            HttpMethod.POST,
-//            new HttpEntity<>(request, headers),
-//            parameterizedTypeReference
-//        );
-//        return exchange;
-//    }
 
     @Override
     public ResponseEntity<BaseResponse<GetDecksProxyResponse>> getDecks(GetDecksProxyRequest request) throws ProxyLogicException {
@@ -58,7 +38,7 @@ public class ProviderProxyClient implements ProviderProxy {
         var exchange = restTemplate.exchange(
             uriBuilderFactory
                 .builder()
-                .path(props.getPaths().getGetDecks())
+                .path(properties.getPaths().getGetDecks())
                 .build(Map.of(PARTNER_OPTION, partnerName.toLowerCase())),
             HttpMethod.POST,
             new HttpEntity<>(request, headers),

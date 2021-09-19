@@ -1,10 +1,5 @@
 package io.github.renestel.notion.back.app.domain.service.impl;
 
-import io.github.renestel.notion.back.app.domain.domain.dto.DeckDto;
-import io.github.renestel.notion.back.app.domain.domain.dto.RowDto;
-import io.github.renestel.notion.back.app.domain.domain.request.GetDecksRequest;
-import io.github.renestel.notion.back.app.domain.domain.request.SaveDeckRequest;
-import io.github.renestel.notion.back.app.domain.domain.response.GetDecksResponse;
 import io.github.renestel.notion.back.app.domain.service.DeckService;
 import io.github.renestel.notion.domain.model.response.base.BaseResponse;
 import io.github.renestel.notion.domain.model.response.base.ResponseStatus;
@@ -12,6 +7,10 @@ import io.github.renestel.notion.persistence.repository.DecksRepository;
 import io.github.renestel.notion.provider.proxy.api.ProviderProxy;
 import io.github.renestel.notion.provider.proxy.api.request.GetDecksProxyRequest;
 import io.github.renestel.notion.provider.proxy.client.utils.ProviderProxyResponseHandler;
+import io.github.renestel.notion.rest.gateway.api.domain.dto.DeckDto;
+import io.github.renestel.notion.rest.gateway.api.domain.dto.RowDto;
+import io.github.renestel.notion.rest.gateway.api.domain.request.GetDecksRequest;
+import io.github.renestel.notion.rest.gateway.api.domain.response.GetDecksResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -75,10 +74,4 @@ public class DeckServiceImpl implements DeckService {
                     .build())
                 .build());
     }
-
-    @Override
-    public ResponseEntity<BaseResponse<Void>> saveDeck(SaveDeckRequest request) {
-        return null;
-    }
-
 }
