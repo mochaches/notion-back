@@ -1,0 +1,26 @@
+server:
+  port: 8082
+  enabled: true
+
+spring:
+  application:
+    name: Anki Proxy
+
+anki:
+  schema: http
+  connection-timeout: 10000
+  read-timeout: 20000
+  host: localhost
+  port: 8765
+  basePath: ''
+  ssl:
+    enabled: false
+    client-auth: need
+    key-store: anki-proxy-app/src/main/resources/keystore.jks
+    key-store-type: JKS
+    key-store-password: 123456
+    trust-store: anki-proxy-app/src/main/resources/truststore.p12
+    trust-store-type: PKCS12
+    trust-store-password: 123456
+  paths:
+    databases: /some
