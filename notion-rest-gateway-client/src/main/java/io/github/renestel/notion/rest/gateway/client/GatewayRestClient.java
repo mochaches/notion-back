@@ -32,7 +32,7 @@ public class GatewayRestClient implements GatewayRestApi {
         var exchange = restTemplate.exchange(
             uriBuilderFactory
                 .builder()
-                .path(properties.getPaths().getGetDecks())
+                .path(properties.getPaths().getDecks())
                 .build(),
             HttpMethod.POST,
             new HttpEntity<>(request, headers),

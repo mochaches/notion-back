@@ -3,7 +3,6 @@ package io.github.renestel.notion.rest.gateway.client.config;
 import lombok.Getter;
 import lombok.Setter;
 import notion.back.utils.rest.BaseRestClientProperties;
-import notion.back.utils.rest.HttpClientConfigurer;
 
 import javax.validation.constraints.NotNull;
 
@@ -20,9 +19,7 @@ public class GatewayRestClientProperties extends BaseRestClientProperties {
     @Setter
     public static class ServicePath {
         @NotNull
-        String getDeck;
-        @NotNull
-        String getDecks;
+        String decks;
     }
 }
 
