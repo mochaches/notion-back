@@ -16,5 +16,8 @@ import javax.validation.constraints.NotNull;
 public class GetDecksProxyRequest {
     @NotNull
     @Schema(title = "User id", required = true)
-    String userId;
+    String user;
+    @NotNull
+    @Schema(title = "Database id", required = true)
+    String database;
 }

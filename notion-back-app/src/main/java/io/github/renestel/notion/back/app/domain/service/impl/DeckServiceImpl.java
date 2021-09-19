@@ -1,6 +1,5 @@
 package io.github.renestel.notion.back.app.domain.service.impl;
 
-import io.github.renestel.notion.back.app.domain.domain.dto.DeckDto;
 import io.github.renestel.notion.back.app.domain.domain.request.GetDeckRequest;
 import io.github.renestel.notion.back.app.domain.domain.request.SaveDeckRequest;
 import io.github.renestel.notion.back.app.domain.domain.response.GetDeckResponse;
@@ -10,6 +9,8 @@ import io.github.renestel.notion.domain.model.response.base.ResponseStatus;
 import io.github.renestel.notion.persistence.repository.DecksRepository;
 import io.github.renestel.notion.provider.proxy.api.ProviderProxy;
 import io.github.renestel.notion.provider.proxy.api.request.GetDeckProxyRequest;
+import io.github.renestel.notion.provider.proxy.api.request.GetDecksProxyRequest;
+import io.github.renestel.notion.provider.proxy.api.response.GetDecksProxyResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +19,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -43,7 +43,10 @@ public class DeckServiceImpl implements DeckService {
     @Override
     @SneakyThrows
     public ResponseEntity<BaseResponse<GetDeckResponse>> getDeck(GetDeckRequest request) {
-        proxies.get("notion").getDeck(GetDeckProxyRequest.builder().build());
+        var notion = proxies.get("notion").getDecks(GetDecksProxyRequest.builder()
+            .database(request.getDatabase())
+            .user(request.getUser())
+            .build());
         return ResponseEntity.ok(
             BaseResponse
                 .<GetDeckResponse>builder()

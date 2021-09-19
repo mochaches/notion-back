@@ -12,10 +12,10 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Schema(title = "Deck info")
-public class DeckProxyDto {
-    @Schema(title = "Deck name")
-    String name;
-    @Schema(title = "Rows")
-    List<RowProxyDto> rows;
+@Schema(title = "Row info")
+public class RowProxyDto {
+    String id;
+    String side1;
+    String side2;
+    List<String> tags;
 }
