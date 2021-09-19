@@ -10,8 +10,8 @@
     <groupId>io.github.renestel</groupId>
     <artifactId>notion-proxy</artifactId>
     <version>01.000.00-SNAPSHOT</version>
-
     <packaging>pom</packaging>
+
     <modules>
         <module>notion-proxy-app</module>
     </modules>
