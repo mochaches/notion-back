@@ -1,8 +1,8 @@
 package io.github.renestel.notion.back.app.rest;
 
-import io.github.renestel.notion.back.app.domain.domain.request.GetDeckRequest;
+import io.github.renestel.notion.back.app.domain.domain.request.GetDecksRequest;
 import io.github.renestel.notion.back.app.domain.domain.request.SaveDeckRequest;
-import io.github.renestel.notion.back.app.domain.domain.response.GetDeckResponse;
+import io.github.renestel.notion.back.app.domain.domain.response.GetDecksResponse;
 import io.github.renestel.notion.back.app.domain.service.DeckService;
 import io.github.renestel.notion.domain.model.response.base.BaseResponse;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
@@ -33,10 +33,10 @@ import javax.validation.Valid;
 public class DeckController {
     final DeckService deckService;
 
-    @PostMapping("/getDeck")
-    @Operation(tags = "Deck", summary = "NOTION_GET_DECK_REQUEST", description = "Получение колоды")
-    public ResponseEntity<BaseResponse<GetDeckResponse>> getDeck(@Valid @RequestBody GetDeckRequest request) {
-        return deckService.getDeck(request);
+    @PostMapping("/getDecks")
+    @Operation(tags = "Deck", summary = "NOTION_GET_DECKS_REQUEST", description = "Получение колод")
+    public ResponseEntity<BaseResponse<GetDecksResponse>> getDeck(@Valid @RequestBody GetDecksRequest request) {
+        return deckService.getDecks(request);
     }
 
     @PostMapping("/saveDeck")

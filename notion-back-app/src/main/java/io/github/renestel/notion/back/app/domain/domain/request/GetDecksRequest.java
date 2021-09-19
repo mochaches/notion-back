@@ -13,9 +13,10 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(title = "Get deck request")
-public class GetDeckRequest {
+public class GetDecksRequest {
     @NotNull
     String database;
     @NotNull
     String user;
 }
+

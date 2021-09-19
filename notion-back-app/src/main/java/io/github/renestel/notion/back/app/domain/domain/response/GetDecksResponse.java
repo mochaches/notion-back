@@ -7,12 +7,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(title = "Deck response")
-public class GetDeckResponse {
-    @Schema(title = "Deck")
-    DeckDto deck;
+public class GetDecksResponse {
+    List<DeckDto> decks;
 }

@@ -12,11 +12,14 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Schema(title = "Deck info")
-public class DeckDto {
-    @Schema(title = "Deck id")
-    Long id;
-    @Schema(title = "Deck name")
-    String name;
-    List<RowDto> rows;
+@Schema(title = "Row info")
+public class RowDto {
+    @Schema(title = "Unique row id")
+    String id;
+    @Schema(title = "Question")
+    String side1;
+    @Schema(title = "Answer")
+    String side2;
+    @Schema(title = "Tags")
+    List<String> tags;
 }

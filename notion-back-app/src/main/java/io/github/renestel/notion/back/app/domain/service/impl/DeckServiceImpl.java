@@ -1,16 +1,17 @@
 package io.github.renestel.notion.back.app.domain.service.impl;
 
-import io.github.renestel.notion.back.app.domain.domain.request.GetDeckRequest;
+import io.github.renestel.notion.back.app.domain.domain.dto.DeckDto;
+import io.github.renestel.notion.back.app.domain.domain.dto.RowDto;
+import io.github.renestel.notion.back.app.domain.domain.request.GetDecksRequest;
 import io.github.renestel.notion.back.app.domain.domain.request.SaveDeckRequest;
-import io.github.renestel.notion.back.app.domain.domain.response.GetDeckResponse;
+import io.github.renestel.notion.back.app.domain.domain.response.GetDecksResponse;
 import io.github.renestel.notion.back.app.domain.service.DeckService;
 import io.github.renestel.notion.domain.model.response.base.BaseResponse;
 import io.github.renestel.notion.domain.model.response.base.ResponseStatus;
 import io.github.renestel.notion.persistence.repository.DecksRepository;
 import io.github.renestel.notion.provider.proxy.api.ProviderProxy;
-import io.github.renestel.notion.provider.proxy.api.request.GetDeckProxyRequest;
 import io.github.renestel.notion.provider.proxy.api.request.GetDecksProxyRequest;
-import io.github.renestel.notion.provider.proxy.api.response.GetDecksProxyResponse;
+import io.github.renestel.notion.provider.proxy.client.utils.ProviderProxyResponseHandler;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -42,17 +43,35 @@ public class DeckServiceImpl implements DeckService {
 
     @Override
     @SneakyThrows
-    public ResponseEntity<BaseResponse<GetDeckResponse>> getDeck(GetDeckRequest request) {
+    public ResponseEntity<BaseResponse<GetDecksResponse>> getDecks(GetDecksRequest request) {
         var notion = proxies.get("notion").getDecks(GetDecksProxyRequest.builder()
             .database(request.getDatabase())
             .user(request.getUser())
             .build());
+        var response = ProviderProxyResponseHandler.getResponse(notion);
+        var result = response.getDecks().stream()
+            .map(e -> {
+                return DeckDto.builder()
+                    .name(e.getName())
+                    .rows(e.getRows().stream()
+                        .map(r -> {
+                            return RowDto.builder()
+                                .id(r.getId())
+                                .side1(r.getSide1())
+                                .side2(r.getSide2())
+                                .tags(r.getTags())
+                                .build();
+                        })
+                        .collect(Collectors.toList()))
+                    .build();
+            })
+            .collect(Collectors.toList());
         return ResponseEntity.ok(
             BaseResponse
-                .<GetDeckResponse>builder()
+                .<GetDecksResponse>builder()
                 .status(ResponseStatus.OK)
-                .data(GetDeckResponse.builder()
-                    .deck(null)
+                .data(GetDecksResponse.builder()
+                    .decks(result)
                     .build())
                 .build());
     }
