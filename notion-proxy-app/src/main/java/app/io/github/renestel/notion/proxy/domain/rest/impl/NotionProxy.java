@@ -6,6 +6,7 @@ import app.io.github.renestel.notion.proxy.client.dto.SortDto;
 import app.io.github.renestel.notion.proxy.client.request.GetDatabaseInfoRequest;
 import app.io.github.renestel.notion.proxy.domain.rest.ProviderProxyResponseHandler;
 import io.github.renestel.notion.domain.model.response.base.BaseResponse;
+import io.github.renestel.notion.domain.model.response.base.ResponseStatus;
 import io.github.renestel.notion.provider.proxy.api.ProviderProxy;
 import io.github.renestel.notion.provider.proxy.api.ProxyLogicException;
 import io.github.renestel.notion.provider.proxy.api.dto.DeckProxyDto;
@@ -63,6 +64,7 @@ public class NotionProxy implements ProviderProxy {
 
         return ResponseEntity.ok(
             BaseResponse.<GetDecksProxyResponse>builder()
+                .status(ResponseStatus.OK)
                 .data(GetDecksProxyResponse.builder()
                     .decks(decks)
                     .build())
