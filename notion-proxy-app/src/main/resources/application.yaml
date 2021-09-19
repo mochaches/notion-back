@@ -7,12 +7,12 @@ spring:
     name: Notion Proxy
 
 notion:
-  schema: http
+  schema: https
   connection-timeout: 10000
   read-timeout: 20000
-  host: localhost
-  port: 1001
-  basePath: /notion/v1
+  host: api.notion.com
+  port: 443
+  basePath: /v1
   ssl:
     enabled: false
     client-auth: need
@@ -23,5 +23,5 @@ notion:
     trust-store-type: PKCS12
     trust-store-password: 123456
   paths:
-    deck: /deck
-    decks: /decs
+    databases: /databases/{id}
+    query-databases: /databases/{id}/query

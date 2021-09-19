@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,14 +33,14 @@ public class ProxyController implements ProviderProxy {
     @Override
     @PostMapping("/getDeck")
     @Operation(tags = "decks", summary = "Get deck info")
-    public ResponseEntity<BaseResponse<GetDeckProxyResponse>> getDeck(GetDeckProxyRequest request) throws ProxyLogicException {
+    public ResponseEntity<BaseResponse<GetDeckProxyResponse>> getDeck(@RequestBody GetDeckProxyRequest request) throws ProxyLogicException {
         return service.getDeck(request);
     }
 
     @Override
     @PostMapping("/getDecks")
     @Operation(tags = "decks", summary = "Get all deck info")
-    public ResponseEntity<BaseResponse<GetDecksProxyResponse>> getDecks(GetDecksProxyRequest request) throws ProxyLogicException {
+    public ResponseEntity<BaseResponse<GetDecksProxyResponse>> getDecks(@RequestBody GetDecksProxyRequest request) throws ProxyLogicException {
         return service.getDecks(request);
     }
 

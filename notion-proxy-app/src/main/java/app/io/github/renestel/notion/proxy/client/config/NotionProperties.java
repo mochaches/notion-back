@@ -44,9 +44,9 @@ public class NotionProperties extends BaseRestClientProperties {
     public static class ServicePath {
 
         @NotBlank
-        private String deck;
+        private String databases;
 
         @NotBlank
-        private String decks;
+        private String queryDatabases;
     }
 }
