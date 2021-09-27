@@ -84,7 +84,7 @@ anki:
   proxy:
     schema: http
     host: localhost
-    port: 8081
+    port: 8082
     basePath: /v1/rest/{partner}
     max-total-connections: 30
     max-default-per-route-connections: 30

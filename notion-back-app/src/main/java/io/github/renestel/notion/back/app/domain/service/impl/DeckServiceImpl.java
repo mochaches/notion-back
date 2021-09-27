@@ -43,7 +43,7 @@ public class DeckServiceImpl implements DeckService {
     @Override
     @SneakyThrows
     public ResponseEntity<BaseResponse<GetDecksResponse>> getDecks(GetDecksRequest request) {
-        var notion = proxies.get("notion").getDecks(GetDecksProxyRequest.builder()
+        var notion = proxies.get(request.getProvider()).getDecks(GetDecksProxyRequest.builder()
             .database(request.getDatabase())
             .user(request.getUser())
             .build());
