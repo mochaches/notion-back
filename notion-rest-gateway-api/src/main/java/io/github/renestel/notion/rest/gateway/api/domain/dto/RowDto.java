@@ -15,7 +15,7 @@ import java.util.List;
 @Schema(title = "Row info")
 public class RowDto {
     @Schema(title = "Unique row id")
-    String id;
+    Long id;
     @Schema(title = "Question")
     String side1;
     @Schema(title = "Answer")

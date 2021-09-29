@@ -1,4 +1,4 @@
-package io.github.renestel.notion.provider.proxy.api.dto;
+package io.github.renestel.anki.provider.proxy.api.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(title = "Row info")
-public class RowProxyDto {
+public class AnkiRowProxyDto {
     Long id;
     Long noteId;
     String side1;

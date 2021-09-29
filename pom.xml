@@ -102,10 +102,17 @@
             <dependency>
                 <groupId>io.github.renestel</groupId>
                 <artifactId>anki-proxy-app</artifactId>
+                <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.renestel</groupId>
                 <artifactId>notion-proxy-app</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.renestel</groupId>
+                <artifactId>anki-provider-proxy-api</artifactId>
+                <version>${revision}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
