@@ -17,9 +17,6 @@ import javax.validation.constraints.NotNull;
 @Schema(title = "Запрос данынх о колодах")
 public class GetDecksRequest extends BaseRequest {
     @NotNull
-    @Schema(title = "Уникальный код базы данных", required = true)
-    String database;
-    @NotNull
     @Schema(title = "Код провайдера", required = true)
     String provider;
 }

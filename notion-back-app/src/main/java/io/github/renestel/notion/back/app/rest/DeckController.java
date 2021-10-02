@@ -38,9 +38,4 @@ public class DeckController {
         return deckService.getDecks(request);
     }
 
-//    @PostMapping("/saveDeck")
-//    @Operation(tags = "Deck", summary = "NOTION_SAVE_DECK_REQUEST", description = "Сохранение колоды")
-//    public ResponseEntity<BaseResponse<Void>> saveDeck(@Valid @RequestBody SaveDeckRequest request) {
-//        return deckService.saveDeck(request);
-//    }
 }

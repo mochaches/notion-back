@@ -22,8 +22,9 @@
         <module>notion-back-utils-rest</module>
         <module>notion-rest-gateway-api</module>
         <module>notion-rest-gateway-client</module>
-        <module>anki-proxy-app</module>
-        <module>notion-proxy-app</module>
+<!--        <module>anki-proxy-app</module>-->
+<!--        <module>notion-proxy-app</module>-->
+        <module>anki-provider-proxy-api</module>
     </modules>
 
     <name>notion</name>
@@ -99,16 +100,16 @@
                 <artifactId>notion-rest-gateway-client</artifactId>
                 <version>${revision}</version>
             </dependency>
-            <dependency>
-                <groupId>io.github.renestel</groupId>
-                <artifactId>anki-proxy-app</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.renestel</groupId>
-                <artifactId>notion-proxy-app</artifactId>
-                <version>${revision}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>io.github.renestel</groupId>-->
+<!--                <artifactId>anki-proxy-app</artifactId>-->
+<!--                <version>${revision}</version>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>io.github.renestel</groupId>-->
+<!--                <artifactId>notion-proxy-app</artifactId>-->
+<!--                <version>${revision}</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>io.github.renestel</groupId>
                 <artifactId>anki-provider-proxy-api</artifactId>

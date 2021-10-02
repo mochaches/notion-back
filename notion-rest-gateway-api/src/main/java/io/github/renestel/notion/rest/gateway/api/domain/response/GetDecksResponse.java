@@ -15,5 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Schema(title = "Информация о колодах")
 public class GetDecksResponse {
+    @Schema(title = "Provider name")
+    String providerName;
     List<DeckDto> decks;
 }

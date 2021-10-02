@@ -1,5 +1,6 @@
-package app.io.github.renestel.notion.proxy.client.dto;
+package io.github.renestel.notion.provider.proxy.api.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,10 +12,10 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RowDto {
+@Schema(title = "Row info")
+public class NotionRowProxyDto {
     String id;
     String side1;
     String side2;
     List<String> tags;
-    String deck;
 }

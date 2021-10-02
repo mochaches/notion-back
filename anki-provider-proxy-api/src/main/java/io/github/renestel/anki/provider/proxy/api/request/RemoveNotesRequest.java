@@ -1,5 +1,4 @@
-package io.github.renestel.anki.proxy.domain.client.dto;
-
+package io.github.renestel.anki.provider.proxy.api.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +11,6 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ParamsDto {
-    List<Long> cards;
+public class RemoveNotesRequest {
+    List<String> notes;
 }

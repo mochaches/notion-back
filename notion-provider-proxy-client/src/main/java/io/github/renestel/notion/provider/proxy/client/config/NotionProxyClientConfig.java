@@ -1,7 +1,7 @@
 package io.github.renestel.notion.provider.proxy.client.config;
 
-import io.github.renestel.notion.provider.proxy.api.ProviderProxy;
-import io.github.renestel.notion.provider.proxy.client.ProviderProxyClient;
+import io.github.renestel.notion.provider.proxy.api.NotionProviderProxy;
+import io.github.renestel.notion.provider.proxy.client.NotionProviderProxyClient;
 import notion.back.utils.rest.HttpClientConfigurer;
 import org.apache.http.HttpRequestInterceptor;
 import org.apache.http.HttpResponseInterceptor;
@@ -53,10 +53,10 @@ public class NotionProxyClientConfig extends HttpClientConfigurer {
     }
 
     @Bean
-    public ProviderProxy createNotionProxy(
+    public NotionProviderProxy createNotionProxy(
         @Qualifier("notion.proxy.client") UriBuilderFactory uriBuilderFactory,
         @Qualifier("createAnkiProxyProperties") ProviderProxyProperties properties,
         @Qualifier("notion.proxy.client.rest.template") RestTemplate restClient) {
-        return new ProviderProxyClient(uriBuilderFactory, properties, restClient, "notion");
+        return new NotionProviderProxyClient(uriBuilderFactory, properties, restClient, "notion");
     }
 }

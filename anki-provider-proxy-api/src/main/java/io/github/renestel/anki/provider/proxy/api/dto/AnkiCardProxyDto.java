@@ -6,15 +6,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Schema(title = "Deck info")
-public class AnkiDeckProxyDto {
-    @Schema(title = "Deck name")
-    String name;
-    List<AnkiRowProxyDto> rows;
+@Schema(title = "Card info")
+public class AnkiCardProxyDto {
+    String deckName;
+    String front;
+    String back;
+    Set<String> tags;
 }
