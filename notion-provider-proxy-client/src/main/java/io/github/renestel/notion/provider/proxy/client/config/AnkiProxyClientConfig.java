@@ -53,7 +53,7 @@ public class AnkiProxyClientConfig extends HttpClientConfigurer {
     }
 
     @Bean
-    public ProviderProxy createAnkiProxy(
+    public ProviderProxy anki(
         @Qualifier("anki.proxy.client") UriBuilderFactory uriBuilderFactory,
         @Qualifier("createAnkiProxyProperties") ProviderProxyProperties properties,
         @Qualifier("anki.proxy.client.rest.template") RestTemplate restClient) {

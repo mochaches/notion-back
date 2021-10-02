@@ -53,7 +53,7 @@ public class NotionProxyClientConfig extends HttpClientConfigurer {
     }
 
     @Bean
-    public ProviderProxy createNotionProxy(
+    public ProviderProxy notion(
         @Qualifier("notion.proxy.client") UriBuilderFactory uriBuilderFactory,
         @Qualifier("createAnkiProxyProperties") ProviderProxyProperties properties,
         @Qualifier("notion.proxy.client.rest.template") RestTemplate restClient) {
