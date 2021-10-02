@@ -21,7 +21,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class NotionProxyClientConfig extends HttpClientConfigurer {
 
     @Bean("notion.proxy.client")
-    public UriBuilderFactory createUriBuilderFactory(@Qualifier("createAnkiProxyProperties") ProviderProxyProperties properties) {
+    public UriBuilderFactory createUriBuilderFactory(@Qualifier("createNotionProxyProperties") ProviderProxyProperties properties) {
         return new DefaultUriBuilderFactory(
             UriComponentsBuilder
                 .newInstance()

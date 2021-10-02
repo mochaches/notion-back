@@ -17,5 +17,5 @@ import javax.validation.constraints.NotNull;
 public class BaseRequest {
     @NotNull
     @Schema(title = "Уникальный идентификатор пользователя", required = true)
-    String user;
+    Long user;
 }

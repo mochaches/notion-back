@@ -77,7 +77,6 @@ notion:
       trust-store-type: PKCS12
       trust-store-password: example
     paths:
-      get-deck: /getDeck
       get-decks: /getDecks
 
 anki:
@@ -101,7 +100,6 @@ anki:
       trust-store-type: PKCS12
       trust-store-password: example
     paths:
-      get-deck: /getDeck
       get-decks: /getDecks
 
 notion-back:
