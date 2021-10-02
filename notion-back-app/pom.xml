@@ -50,7 +50,7 @@
         </dependency>
         <dependency>
             <groupId>io.github.renestel</groupId>
-            <artifactId>notion-provider-proxy-api</artifactId>
+            <artifactId>provider-proxy-api</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.renestel</groupId>

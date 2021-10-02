@@ -1,6 +1,6 @@
 package io.github.renestel.notion.provider.proxy.api.response;
 
-import io.github.renestel.notion.provider.proxy.api.dto.NotionDeckProxyDto;
+import io.github.renestel.notion.provider.proxy.api.dto.DeckProxyDto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,5 +18,5 @@ import java.util.List;
 public class GetDecksProxyResponse {
     @NotNull
     @Schema(title = "Decks list", required = true)
-    List<NotionDeckProxyDto> decks;
+    List<DeckProxyDto> decks;
 }

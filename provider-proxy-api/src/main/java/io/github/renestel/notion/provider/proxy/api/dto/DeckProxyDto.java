@@ -13,9 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(title = "Deck info")
-public class NotionDeckProxyDto {
+public class DeckProxyDto {
     @Schema(title = "Deck name")
     String name;
     @Schema(title = "Rows")
-    List<NotionRowProxyDto> rows;
+    List<RowProxyDto> rows;
 }

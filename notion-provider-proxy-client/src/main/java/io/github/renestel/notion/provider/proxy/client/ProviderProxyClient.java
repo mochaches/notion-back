@@ -1,7 +1,7 @@
 package io.github.renestel.notion.provider.proxy.client;
 
 import io.github.renestel.notion.domain.model.response.base.BaseResponse;
-import io.github.renestel.notion.provider.proxy.api.NotionProviderProxy;
+import io.github.renestel.notion.provider.proxy.api.ProviderProxy;
 import io.github.renestel.notion.provider.proxy.api.ProxyLogicException;
 import io.github.renestel.notion.provider.proxy.api.request.GetDecksProxyRequest;
 import io.github.renestel.notion.provider.proxy.api.response.GetDecksProxyResponse;
@@ -19,7 +19,7 @@ import org.springframework.web.util.UriBuilderFactory;
 import java.util.Map;
 
 @RequiredArgsConstructor
-public class NotionProviderProxyClient implements NotionProviderProxy {
+public class ProviderProxyClient implements ProviderProxy {
     static final String PARTNER_OPTION = "partner";
 
     final UriBuilderFactory uriBuilderFactory;

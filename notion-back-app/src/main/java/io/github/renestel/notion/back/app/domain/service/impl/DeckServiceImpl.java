@@ -4,7 +4,6 @@ import io.github.renestel.notion.back.app.domain.service.DeckService;
 import io.github.renestel.notion.domain.model.response.base.BaseResponse;
 import io.github.renestel.notion.domain.model.response.base.ResponseStatus;
 import io.github.renestel.notion.persistence.repository.DeckRepository;
-import io.github.renestel.notion.provider.proxy.api.NotionProviderProxy;
 import io.github.renestel.notion.rest.gateway.api.domain.request.GetDecksRequest;
 import io.github.renestel.notion.rest.gateway.api.domain.response.GetDecksResponse;
 import lombok.RequiredArgsConstructor;
@@ -15,10 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

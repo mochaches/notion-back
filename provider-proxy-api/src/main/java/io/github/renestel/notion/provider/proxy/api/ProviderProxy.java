@@ -5,7 +5,7 @@ import io.github.renestel.notion.provider.proxy.api.request.GetDecksProxyRequest
 import io.github.renestel.notion.provider.proxy.api.response.GetDecksProxyResponse;
 import org.springframework.http.ResponseEntity;
 
-public interface NotionProviderProxy {
+public interface ProviderProxy {
 
     ResponseEntity<BaseResponse<GetDecksProxyResponse>> getDecks(GetDecksProxyRequest request) throws ProxyLogicException;
 }

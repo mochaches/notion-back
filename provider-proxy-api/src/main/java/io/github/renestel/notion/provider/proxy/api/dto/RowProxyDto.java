@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Schema(title = "Row info")
-public class NotionRowProxyDto {
+public class RowProxyDto {
     String id;
     String side1;
     String side2;

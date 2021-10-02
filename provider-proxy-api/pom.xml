@@ -8,7 +8,7 @@
         <version>01.000.00-SNAPSHOT</version>
     </parent>
 
-    <artifactId>notion-provider-proxy-api</artifactId>
+    <artifactId>provider-proxy-api</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
