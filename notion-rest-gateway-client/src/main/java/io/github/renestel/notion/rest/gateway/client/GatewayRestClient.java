@@ -55,7 +55,7 @@ public class GatewayRestClient implements GatewayRestApi {
         var exchange = restTemplate.exchange(
             uriBuilderFactory
                 .builder()
-                .path(properties.getPaths().getDecks())
+                .path(properties.getPaths().getAddCards())
                 .build(),
             HttpMethod.POST,
             new HttpEntity<>(request, headers),
@@ -66,7 +66,22 @@ public class GatewayRestClient implements GatewayRestApi {
 
     @Override
     public ResponseEntity<BaseResponse<Void>> removeDecks(RemoveCardsRequest request) {
-        return null;
+        var parameterizedTypeReference = new ParameterizedTypeReference<BaseResponse<Void>>() {
+        };
+
+        var headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        var exchange = restTemplate.exchange(
+            uriBuilderFactory
+                .builder()
+                .path(properties.getPaths().getRemoveCards())
+                .build(),
+            HttpMethod.POST,
+            new HttpEntity<>(request, headers),
+            parameterizedTypeReference
+        );
+        return exchange;
     }
 
 //    @Override
