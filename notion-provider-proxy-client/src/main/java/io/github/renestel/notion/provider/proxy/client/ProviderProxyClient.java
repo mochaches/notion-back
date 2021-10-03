@@ -3,8 +3,10 @@ package io.github.renestel.notion.provider.proxy.client;
 import io.github.renestel.notion.domain.model.response.base.BaseResponse;
 import io.github.renestel.notion.provider.proxy.api.ProviderProxy;
 import io.github.renestel.notion.provider.proxy.api.ProxyLogicException;
+import io.github.renestel.notion.provider.proxy.api.request.AddCardsProxyRequest;
 import io.github.renestel.notion.provider.proxy.api.request.GetDecksProxyRequest;
 import io.github.renestel.notion.provider.proxy.api.request.RemoveCardsProxyRequest;
+import io.github.renestel.notion.provider.proxy.api.response.AddCardsProxyResponse;
 import io.github.renestel.notion.provider.proxy.api.response.GetDecksProxyResponse;
 import io.github.renestel.notion.provider.proxy.client.config.ProviderProxyProperties;
 import lombok.RequiredArgsConstructor;
@@ -50,6 +52,11 @@ public class ProviderProxyClient implements ProviderProxy {
 
     @Override
     public ResponseEntity<BaseResponse<Void>> removeCards(RemoveCardsProxyRequest request) throws ProxyLogicException {
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<BaseResponse<AddCardsProxyResponse>> addCards(AddCardsProxyRequest request) throws ProxyLogicException {
         return null;
     }
 
