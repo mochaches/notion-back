@@ -2,6 +2,7 @@ package io.github.renestel.notion.back.app.rest;
 
 import io.github.renestel.notion.back.app.domain.service.DeckService;
 import io.github.renestel.notion.domain.model.response.base.BaseResponse;
+import io.github.renestel.notion.rest.gateway.api.GatewayRestApi;
 import io.github.renestel.notion.rest.gateway.api.domain.request.AddCardsRequest;
 import io.github.renestel.notion.rest.gateway.api.domain.request.GetDecksRequest;
 import io.github.renestel.notion.rest.gateway.api.domain.request.RemoveCardsRequest;
@@ -32,14 +33,9 @@ import javax.validation.Valid;
 @OpenAPIDefinition(
     info = @Info(title = "${spring.application.name}", version = "${build.version}")
 )
-public class DeckController {
+public class DeckController implements GatewayRestApi {
     final DeckService deckService;
 
-    @PostMapping("/getDecks")
-    @Operation(tags = "Deck", summary = "NOTION_GET_DECKS_REQUEST", description = "Получение колод")
-    public ResponseEntity<BaseResponse<GetDecksResponse>> getDeck(@Valid @RequestBody GetDecksRequest request) {
-        return deckService.getDecks(request);
-    }
 
     @PostMapping("/removeCards")
     @Operation(tags = "Deck", summary = "NOTION_GET_DECKS_REQUEST", description = "Получение колод")
@@ -53,4 +49,9 @@ public class DeckController {
         return deckService.addCards(request);
     }
 
+    @PostMapping("/getDecks")
+    @Operation(tags = "Deck", summary = "NOTION_GET_DECKS_REQUEST", description = "Получение колод")
+    public ResponseEntity<BaseResponse<GetDecksResponse>> getDecks(@Valid @RequestBody GetDecksRequest request) {
+        return deckService.getDecks(request);
+    }
 }
