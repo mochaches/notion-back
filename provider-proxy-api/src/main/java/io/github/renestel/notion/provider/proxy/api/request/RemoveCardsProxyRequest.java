@@ -6,18 +6,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Schema(title = "Get deck info")
-public class GetDeckProxyRequest {
-    @NotNull
-    @Schema(title = "Database id", required = true)
-    String database;
-    @NotNull
-    @Schema(title = "User token", required = true)
-    String user;
+@Schema(title = "Remove cards")
+public class RemoveCardsProxyRequest {
+    List<String> cardIds;
 }
