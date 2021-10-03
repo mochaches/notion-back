@@ -2,7 +2,10 @@ package io.github.renestel.notion.rest.gateway.client;
 
 import io.github.renestel.notion.domain.model.response.base.BaseResponse;
 import io.github.renestel.notion.rest.gateway.api.GatewayRestApi;
+import io.github.renestel.notion.rest.gateway.api.domain.request.AddCardsRequest;
 import io.github.renestel.notion.rest.gateway.api.domain.request.GetDecksRequest;
+import io.github.renestel.notion.rest.gateway.api.domain.request.RemoveCardsRequest;
+import io.github.renestel.notion.rest.gateway.api.domain.response.AddCardsResponse;
 import io.github.renestel.notion.rest.gateway.api.domain.response.GetDecksResponse;
 import io.github.renestel.notion.rest.gateway.client.config.GatewayRestClientProperties;
 import lombok.RequiredArgsConstructor;
@@ -39,6 +42,31 @@ public class GatewayRestClient implements GatewayRestApi {
             parameterizedTypeReference
         );
         return exchange;
+    }
+
+    @Override
+    public ResponseEntity<BaseResponse<AddCardsResponse>> addCards(AddCardsRequest request) {
+        var parameterizedTypeReference = new ParameterizedTypeReference<BaseResponse<AddCardsResponse>>() {
+        };
+
+        var headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        var exchange = restTemplate.exchange(
+            uriBuilderFactory
+                .builder()
+                .path(properties.getPaths().getDecks())
+                .build(),
+            HttpMethod.POST,
+            new HttpEntity<>(request, headers),
+            parameterizedTypeReference
+        );
+        return exchange;
+    }
+
+    @Override
+    public ResponseEntity<BaseResponse<Void>> removeDecks(RemoveCardsRequest request) {
+        return null;
     }
 
 //    @Override

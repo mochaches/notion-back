@@ -20,6 +20,10 @@ public class GatewayRestClientProperties extends BaseRestClientProperties {
     public static class ServicePath {
         @NotNull
         String decks;
+        @NotNull
+        String removeCards;
+        @NotNull
+        String addCards;
     }
 }
 
