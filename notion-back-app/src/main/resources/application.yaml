@@ -78,6 +78,8 @@ notion:
       trust-store-password: example
     paths:
       get-decks: /getDecks
+      remove-cards: /removeCards
+      add-cards: /addCards
 
 anki:
   proxy:
@@ -101,6 +103,8 @@ anki:
       trust-store-password: example
     paths:
       get-decks: /getDecks
+      remove-cards: /removeCards
+      add-cards: /addCards
 
 notion-back:
 

@@ -52,12 +52,42 @@ public class ProviderProxyClient implements ProviderProxy {
 
     @Override
     public ResponseEntity<BaseResponse<Void>> removeCards(RemoveCardsProxyRequest request) throws ProxyLogicException {
-        return null;
+        var parameterizedTypeReference = new ParameterizedTypeReference<BaseResponse<Void>>() {
+        };
+
+        var headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        var exchange = restTemplate.exchange(
+            uriBuilderFactory
+                .builder()
+                .path(properties.getPaths().getRemoveCards())
+                .build(Map.of(PARTNER_OPTION, partnerName.toLowerCase())),
+            HttpMethod.POST,
+            new HttpEntity<>(request, headers),
+            parameterizedTypeReference
+        );
+        return exchange;
     }
 
     @Override
     public ResponseEntity<BaseResponse<AddCardsProxyResponse>> addCards(AddCardsProxyRequest request) throws ProxyLogicException {
-        return null;
+        var parameterizedTypeReference = new ParameterizedTypeReference<BaseResponse<AddCardsProxyResponse>>() {
+        };
+
+        var headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        var exchange = restTemplate.exchange(
+            uriBuilderFactory
+                .builder()
+                .path(properties.getPaths().getAddCards())
+                .build(Map.of(PARTNER_OPTION, partnerName.toLowerCase())),
+            HttpMethod.POST,
+            new HttpEntity<>(request, headers),
+            parameterizedTypeReference
+        );
+        return exchange;
     }
 
 //    @Override

@@ -5,11 +5,18 @@ import io.github.renestel.notion.domain.model.response.base.BaseResponse;
 import io.github.renestel.notion.domain.model.response.base.ResponseStatus;
 import io.github.renestel.notion.persistence.repository.UserRepository;
 import io.github.renestel.notion.provider.proxy.api.ProviderProxy;
+import io.github.renestel.notion.provider.proxy.api.dto.DeckProxyDto;
+import io.github.renestel.notion.provider.proxy.api.dto.RowProxyDto;
+import io.github.renestel.notion.provider.proxy.api.request.AddCardsProxyRequest;
 import io.github.renestel.notion.provider.proxy.api.request.GetDecksProxyRequest;
+import io.github.renestel.notion.provider.proxy.api.request.RemoveCardsProxyRequest;
 import io.github.renestel.notion.provider.proxy.client.utils.ProviderProxyResponseHandler;
 import io.github.renestel.notion.rest.gateway.api.domain.dto.DeckDto;
 import io.github.renestel.notion.rest.gateway.api.domain.dto.RowDto;
+import io.github.renestel.notion.rest.gateway.api.domain.request.AddCardsRequest;
 import io.github.renestel.notion.rest.gateway.api.domain.request.GetDecksRequest;
+import io.github.renestel.notion.rest.gateway.api.domain.request.RemoveCardsRequest;
+import io.github.renestel.notion.rest.gateway.api.domain.response.AddCardsResponse;
 import io.github.renestel.notion.rest.gateway.api.domain.response.GetDecksResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -19,6 +26,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -68,6 +76,51 @@ public class DeckServiceImpl implements DeckService {
                 .status(ResponseStatus.OK)
                 .data(GetDecksResponse.builder()
                     .decks(result)
+                    .build())
+                .build());
+    }
+
+    @Override
+    @SneakyThrows
+    public ResponseEntity<BaseResponse<Void>> removeCards(RemoveCardsRequest request) {
+        var query = RemoveCardsProxyRequest.builder()
+            .cardIds(request.getCardIds())
+            .build();
+        proxies.get(request.getProvider()).removeCards(query);
+        return ResponseEntity.ok(
+            BaseResponse
+                .<Void>builder()
+                .status(ResponseStatus.OK)
+                .build());
+    }
+
+    @Override
+    @SneakyThrows
+    public ResponseEntity<BaseResponse<AddCardsResponse>> addCards(AddCardsRequest request) {
+        var decks = request.getDecks().stream()
+            .map(e -> {
+                return DeckProxyDto.builder()
+                    .name(e.getName())
+                    .rows(e.getRows().stream().map(c -> {
+                        return RowProxyDto.builder()
+                            .id(c.getId())
+                            .side1(c.getSide1())
+                            .side2(c.getSide2())
+                            .tags(c.getTags())
+                            .build();
+                    }).collect(Collectors.toList()))
+                    .build();
+            }).collect(Collectors.toList());
+        var query = AddCardsProxyRequest.builder()
+            .decks(decks)
+            .build();
+        var response = ProviderProxyResponseHandler.getResponse(proxies.get(request.getProvider()).addCards(query));
+        return ResponseEntity.ok(
+            BaseResponse
+                .<AddCardsResponse>builder()
+                .status(ResponseStatus.OK)
+                .data(AddCardsResponse.builder()
+                    .cardIds(response.getCardIds())
                     .build())
                 .build());
     }

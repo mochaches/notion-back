@@ -1,5 +1,6 @@
 package io.github.renestel.notion.rest.gateway.api.domain.request;
 
+import io.github.renestel.notion.rest.gateway.api.domain.dto.DeckDto;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,9 +17,9 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Schema(title = "Запрос данынх о колодах")
-public class RemoveCardsRequest extends BaseRequest {
+public class AddCardsRequest extends BaseRequest {
     @NotNull
     @Schema(title = "Код провайдера", required = true)
     String provider;
-    List<String> cardIds;
+    List<DeckDto> decks;
 }

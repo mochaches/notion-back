@@ -19,8 +19,10 @@ public class ProviderProxyProperties extends BaseRestClientProperties {
     @Setter
     public static class ServicePath {
         @NotNull
-        String getDeck;
-        @NotNull
         String getDecks;
+        @NotNull
+        String removeCards;
+        @NotNull
+        String addCards;
     }
 }
